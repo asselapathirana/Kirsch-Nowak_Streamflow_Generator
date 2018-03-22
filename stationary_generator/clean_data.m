@@ -3,9 +3,10 @@
 
 clc; clear all;
 datadir = './../data/';
-files = { 'qMarietta_1932-2001.csv', 'qMuddyRun_1932-2001.csv', ...
-    'qLateral_1932-2001.csv', 'evapConowingo_1932-2001.csv', ...
-    'evapMuddyRun_1932-2001.csv'};
+files = { 'qMarietta_1932-2001.csv',  %'qMuddyRun_1932-2001.csv', ...
+%    'qLateral_1932-2001.csv', 'evapConowingo_1932-2001.csv', ...
+%    'evapMuddyRun_1932-2001.csv'
+    };
 hist_data = [];
 
 % load the historical data
@@ -32,8 +33,8 @@ dlmwrite('./../data/Qdaily.txt', Qfinal, ' ');
 % statistical validation figures
 Qfinal_monthly = convert_data_to_monthly(Qfinal);
 % divide evaporation by 86400 (s/day) to get total monthly evap in in/month
-Qfinal_monthly{4} = Qfinal_monthly{4}/86400;
-Qfinal_monthly{5} = Qfinal_monthly{5}/86400;
+%Qfinal_monthly{4} = Qfinal_monthly{4}/86400;
+%Qfinal_monthly{5} = Qfinal_monthly{5}/86400;
 
 % create directories to write files to
 mkdir('./../validation/historical');

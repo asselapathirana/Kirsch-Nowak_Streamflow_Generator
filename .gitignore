@@ -1,0 +1,7 @@
+data/Qdaily.txt
+validation/figures/
+validation/historical/
+validation/synthetic/
+validation/val.wpr
+validation/val.wpu
+

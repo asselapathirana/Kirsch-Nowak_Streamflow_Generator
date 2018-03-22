@@ -34,13 +34,14 @@ clc
 
 % load multi-site observations of daily streamflow
 Qdaily = load('./../data/Qdaily.txt');
-Qdaily = Qdaily(:,1:4); % columns 4 and 5 the same; remove column 5
+%Qdaily = Qdaily(:,1:4); % columns 4 and 5 the same; remove column 5
 
 % make normally distributed evaporation log-normal like flows
 % (monthly_gen.m takes the log of Qdaily to make all columns normally
 % distributed)
-Qdaily(:,4) = exp(Qdaily(:,4));
-sites = {'qMarietta', 'qMuddyRun', 'qLateral', 'evapConowingo'};
+%Qdaily(:,4) = exp(Qdaily(:,4));
+sites = {'qMarietta' %, 'qMuddyRun', 'qLateral', 'evapConowingo'
+    };
 Nyears = size(Qdaily,1)/365;
 Nsites = size(Qdaily,2);
 
@@ -57,7 +58,7 @@ mkdir('./../validation/synthetic');
 for k=1:2
     Qd_cg = combined_generator(Qdaily, num_realizations(k), num_years(k) );
     % back-transform evaporation
-    Qd_cg(:,:,4) = log(Qd_cg(:,:,4));
+    %Qd_cg(:,:,4) = log(Qd_cg(:,:,4));
 
     % write simulated data to file
     for i=1:Nsites
@@ -73,7 +74,7 @@ for k=1:2
     end
     synMonthlyQ = convert_data_to_monthly(Qd2);
     % divide evaporation by 86400 (s/day) to get total monthly evap in mm/month
-    synMonthlyQ{4} = synMonthlyQ{4}/86400;
+%    synMonthlyQ{4} = synMonthlyQ{4}/86400;
     for i=1:Nsites
         saveMonthlyQ = reshape(synMonthlyQ{i}',12*num_years(k),num_realizations(k))';
         dlmwrite(['./../validation/synthetic/' sites{i} dimensions{k} '-monthly.csv'], saveMonthlyQ);
