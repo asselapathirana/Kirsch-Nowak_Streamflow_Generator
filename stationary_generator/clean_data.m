@@ -3,7 +3,7 @@
 
 clc; clear all;
 datadir = './../data/';
-files = { 'qMarietta_1932-2001.csv',  %'qMuddyRun_1932-2001.csv', ...
+files = { 'qKratie_2000_2006.csv',  %'qMuddyRun_1932-2001.csv', ...
 %    'qLateral_1932-2001.csv', 'evapConowingo_1932-2001.csv', ...
 %    'evapMuddyRun_1932-2001.csv'
     };
@@ -16,8 +16,10 @@ end
 
 % find indices of leap years
 % this is specific to the Susquehanna, not general
-leaps = 60:365*3+366:365*(2001-1932+1)+ceil(2001-1932)/4;
-all = 1:1:365*(2001-1932+1)+ceil(2001-1932)/4+1;
+y1=2000;
+y2=2006;
+leaps = 60:365*3+366:365*(y2-y1+1)+ceil(y2-y1)/4;
+all = 1:1:365*(y2-y1+1)+ceil(y2-y1)/4+1;
 non_leaps = setdiff(all,leaps);
 
 Qfinal = zeros(length(non_leaps),length(files));

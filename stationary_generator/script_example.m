@@ -40,7 +40,7 @@ Qdaily = load('./../data/Qdaily.txt');
 % (monthly_gen.m takes the log of Qdaily to make all columns normally
 % distributed)
 %Qdaily(:,4) = exp(Qdaily(:,4));
-sites = {'qMarietta' %, 'qMuddyRun', 'qLateral', 'evapConowingo'
+sites = {'qKratie' %, 'qMuddyRun', 'qLateral', 'evapConowingo'
     };
 Nyears = size(Qdaily,1)/365;
 Nsites = size(Qdaily,2);

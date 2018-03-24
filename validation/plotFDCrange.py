@@ -95,7 +95,9 @@ def plotFDCrange(syntheticData, histData, sites, evapIndices):
 # plot range of flow duration curves from historical record and synthetic generation
 syntheticData = np.loadtxt('./synthetic/Qdaily-1000x1.csv',delimiter=',')
 histData = np.loadtxt('./../data/Qdaily.txt')
-histData = histData[:,0:4] # remove last column (evaporation at Muddy Run same as Conowingo)
-sites = ['Marietta', 'Muddy Run', 'Lateral Inflow', 'Evaporation']
+#histData = histData[:,0:4] # remove last column (evaporation at Muddy Run same as Conowingo)
+sites = ['Marietta'
+         #, 'Muddy Run', 'Lateral Inflow', 'Evaporation'
+         ]
 evapIndices=[3]
 plotFDCrange(syntheticData, histData, sites, evapIndices)
