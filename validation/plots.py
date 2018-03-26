@@ -108,13 +108,14 @@ matplotlib.rcParams.update({'font.size': 16})
 
 fudgefact=1.0 # multiplication factor to fudge data to get extremes to match
 factor_extremes = 50 # take 1/factor_extremes th of the largest values for extreme value calculation
-Nsamples = 5
+Nsamples = 5 # number of realisations to be used for extreme plots and boxplots
+Nts = 2 # number of synthetic time series to be plot 
 
 dataN = np.loadtxt("../data/Qdaily.txt")
 dataS = np.loadtxt("./synthetic/Qdaily-1000x1.csv")*fudgefact
 
 plt.figure(num=1, figsize=(14, 14), dpi=80)
-time_series_plots(plt, 223, 224, Nsamples, dataN, dataS)
+time_series_plots(plt, 223, 224,  Nts, dataN, dataS)
 box_plots(plt,  221, Nsamples, dataN, dataS)
 extreme_plot(plt, 222, factor_extremes, Nsamples, dataN, dataS)
 plt.tight_layout()
